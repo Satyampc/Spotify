@@ -1,5 +1,3 @@
-//https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
-
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 const redirectUri = 'http://localhost:3000/';
@@ -15,11 +13,10 @@ const scopes = [
 
 export const getTokenFromUrl = () => {
     return window.location.hash
-    .substring(1)
-    .split('&')
-    .reduce((initial, item) => {
+    .substring(1).split('&').reduce((initial, item) => {
         let parts = item.split('=');
         initial[parts[0]] = decodeURIComponent(parts[1]);
+        return initial;
     }, {});
 }
 
